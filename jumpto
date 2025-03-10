@@ -15,7 +15,7 @@ main:
 [Other code needed]
 
 encoded:
-b64="(cat <<-EOF
+b64="$(cat <<-EOF
   [BASE64 ENCODED DATA]
 EOF
 )"
