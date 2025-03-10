@@ -1,0 +1,22 @@
+#!/bin/bash
+jumpto() {
+  label=$1
+  cmd=$(sed -n "/$label:/{:a;n;p;ba};" $0 | grep -v ':$')
+  eval "$cmd"
+  exit
+}
+
+encoded=${1:-"encoded"}
+
+jumpto $encoded
+
+main:
+
+[Other code needed]
+
+encoded:
+b64="(cat <<-EOF
+  [BASE64 ENCODED DATA]
+EOF
+)"
+jumpto main
